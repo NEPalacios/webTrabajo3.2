@@ -1,0 +1,525 @@
+
+@font-face {
+    font-family: 'Rubik';
+    src: url(../../fonts/RubikDoodleShadow-Regular.ttf);
+
+}
+@mixin centro-vertical(){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+// VARIABLES
+
+$clr-navbar: #3A6EA5;
+$clr-content: #c0c0c086;
+$clr-content2: #b4b1b1;
+$clr-footer: #3A6EA5;
+
+$estilos-comunes: (
+    font-size: 1.1rem,
+    padding: 3rem,
+    gap: 2rem
+);
+
+// GENERALES GENERALES 
+h2{
+text-align: center;
+text-decoration: underline;
+font-size: 1.5rem;
+font-weight: 700;
+}
+
+h3,h4{
+text-align: center;
+font-size: 1.3rem;
+font-weight: 500;
+}
+
+span{
+font-weight: bold;
+}
+
+///////////////////
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+// TITULO TITULO
+.titulo{
+    font-family: 'Rubik';
+    font-size: 4rem; 
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+        @include tablet{
+            font-size: 2.5rem;
+        }
+}
+
+
+// NAVBAR NAVBAR 
+.navbarPrincipal{
+    display: flex;
+    justify-content: center;
+    background-color: $clr-navbar;
+    font-size: 1.1rem; 
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+
+        .nav-item {
+            margin-right: 1rem;  
+        }
+    }
+}
+
+// GRILLA DE IMÁGENES
+.sectionPrincipal {
+    text-align: center;
+    padding-block: 1vw; 
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+        gap: 2rem; 
+       
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem; 
+        
+            .description {
+                position: absolute;
+                bottom: 0;
+                left: 10rem; 
+                width: 60%;
+                background-color: $clr-navbar;
+                color: #fff;
+                padding: 1rem; 
+                text-align: center;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
+
+// ANIMACION INDEX 
+.grid-container {
+    display: grid;
+    place-items: center;
+    
+    .grid-img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    
+    .grid-item:hover .description {
+        opacity: 1;
+    }
+}
+
+
+//FOOTER FOOTER FOOTER
+.footer {
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem; 
+    text-align: center;
+    color: white;
+    background-color: $clr-footer;
+}
+
+
+// NORTE NORTE
+// NORTE NORTE
+.section-carousel {
+    margin-top: 2.5rem;
+
+    #carouselExampleAutoplaying {
+        display: flex;
+        width: 1000px; 
+        margin: 0 auto;
+        
+        @include tablet {
+            width: 300px; 
+
+        }
+    }
+  
+    #carouselExampleAutoplaying .carousel-inner img {
+        display: flex;
+        max-width: 1000px;
+        height: auto;
+
+        @include tablet {
+            width: 500px; 
+            margin: 0 auto;
+        }
+    }
+}
+
+
+.div-section-norte {
+    @include centro-vertical;
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+    
+    .section-clima, .section-conclusion{ 
+        margin-bottom: 1rem; 
+        padding: 1rem; 
+        border-radius: 2rem;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content2; 
+    }
+
+    .section-atractivos{
+        @include centro-vertical;
+        @each $propiedad, $valor in $estilos-comunes {
+            #{$propiedad}: $valor;
+        }
+        text-align: center;
+
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+        justify-content: center;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content;    
+        
+        .article-atractivos{
+            margin-left: 1rem;
+            }
+                
+        .aside-atractivos {
+            font-weight:350;
+            background-color: $clr-content2;
+            overflow: hidden;
+            margin-right: 2rem;
+            margin-left: 2rem;
+            padding: 1rem;
+        }
+
+        .section-img-atractivos {
+        float: right; 
+        width: 50%; 
+        margin-left: 2rem;
+        border-radius: 2rem;
+        margin-inline-end: 2rem;
+            @include tablet{
+                display: flex;
+                flex-direction: column;
+                float:none;
+                margin: 0 ;
+                margin-bottom: 2rem;
+                width: 100%;
+
+            }
+        } 
+    
+    } 
+}
+
+   
+// // SUR SUR SUR SUR
+.div-section-sur{
+   @include centro-vertical();
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    padding-bottom: 0;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+
+        .section-img-atractivos-sur{
+            width: 50%; 
+            margin: 0;
+            border-radius: 2rem;
+            @include tablet{
+                display: flex;
+                flex-direction: column;
+                float:none;
+                margin: 0 ;
+                margin-bottom: 2rem;
+                width: 100%;
+
+            }
+        }
+        .section-resumen-sur{  
+            margin-bottom: 1rem; 
+            padding: 1rem; 
+            border-radius: 8px;
+            font-style: italic;
+            border: 1px solid $clr-navbar;
+            background-color: $clr-content;  
+        }
+}
+
+.div-section-atractivos-sur, .div-article-atractivos-sur{
+    @include centro-vertical();
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    padding-bottom: 0;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+
+    .section-atractivos-sur, .article-atractivos-sur{
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content2; 
+        margin-bottom: 2rem;
+    
+        .aside-atractivos-sur{
+            font-weight:350;
+            background-color: $clr-content2;
+            overflow: hidden;
+            margin-right: 2rem;
+            margin-left: 2rem;
+            
+            .section-img-atractivos-sur2{
+                width: 30%; 
+                float:inline-start;
+                border-radius: 1rem;
+                margin-right: 2rem;
+                margin-bottom: 2rem;
+                
+                @include tablet{
+                    display: flex;
+                    flex-direction: column;
+                    float:none;
+                    margin: 0 ;
+                    margin-bottom: 2rem;
+                    width: 100%;
+        
+                }
+            }
+        }
+    
+    }
+}
+
+
+// ESTE ESTE ESTE ESTE
+.div-section-este {
+    @include centro-vertical();
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    padding-bottom: 0;
+    justify-content: center;
+
+
+    .section-atractivos-este {  
+        padding: 1rem; 
+        margin-bottom: 1rem; 
+        border-radius: 8px;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content; 
+    }
+
+    .article-atractivos-este {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content2;
+    }
+}
+
+.div-aside-este {
+    @include centro-vertical();
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    padding-bottom: 0;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+
+    .section-img-atractivos-este {
+        width: 50%;
+        margin: 0;
+        margin-bottom: 2rem;
+        border-radius: 2rem;
+        padding: 1rem;
+
+        @include tablet{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+    }
+
+    .aside-atractivos-este {
+        
+        margin-bottom: 1rem;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content;
+        overflow: hidden;
+        margin-top: 2rem;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+.section-conclusion-este {
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    border-radius: 2rem;
+    border: 1px solid $clr-navbar;
+    background-color: $clr-content2;  
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+
+.div-carousel-este {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    #carouselExample {
+        width: 90%;
+        margin-top: 5rem;
+
+        margin: 0 auto;
+
+        .carousel-inner {
+            .carousel-item {
+                text-align: center;
+
+                img {
+                    max-width: 80%; 
+                    height: auto; 
+                    display: inline-block; 
+
+                    @include tablet {
+                        max-width: 350px;
+                    }
+                }
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 1rem;
+            background-color: $clr-navbar; 
+            color: #fff;
+            border: none; 
+            border-radius: 5rem;
+            font-size: 1.5rem; 
+            margin-top: -50px; 
+
+            @include tablet {
+                border-radius: 2rem;
+                font-size: 2.5rem; 
+                margin-top: 0px; 
+                margin-right: -20px;
+                margin-left: -20px;
+            }
+        }
+    }
+}
+
+
+// OESTE OESTE OESTE OESTE
+.div-section-oeste {
+    @include centro-vertical();
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+
+    .section-atractivos-oeste {
+        margin-bottom: 3rem; 
+        padding: 1rem; 
+        border-radius: 8px;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content; 
+    }
+
+}  
+
+.div-table-oeste{   
+    @each $propiedad, $valor in $estilos-comunes {
+        #{$propiedad}: $valor;
+    }
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    justify-content: center;
+
+    .table-oeste {
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+        
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-style: italic;
+        }
+        
+        th {
+            background-color: $clr-navbar;
+        }
+    }
+}
+
+.section-tarjetas {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    @include tablet {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .tarjeta-atractivos-oeste {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 1rem;
+        border: 1px solid $clr-navbar;
+        background-color: $clr-content2;
+        text-align: center;
+        height: auto;
+        width: calc(33.33% - 1rem);
+
+        @include tablet{
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        
+        .img-tarjeta {
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
